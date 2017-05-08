@@ -1,6 +1,5 @@
 const delay = new Tone.FeedbackDelay('8n', 0.8).chain(new Tone.Volume(-12), Tone.Master)
 const filter = new Tone.Filter(1700, 'lowpass').connect(delay).toMaster()
-const vibrato = new Tone.Vibrato ('4n', 0.15)
 const synth = new Tone.Synth({
   volume: -12,
   portamento: 0.1,
@@ -11,7 +10,7 @@ const synth = new Tone.Synth({
     attack: 0.2,
     release: 1
   }
-}).chain(vibrato, filter)
+}).connect(filter)
 
 AFRAME.registerComponent('tone', {
   schema: {
