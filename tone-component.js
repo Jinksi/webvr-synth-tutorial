@@ -1,13 +1,12 @@
 const delay = new Tone.FeedbackDelay('8n', 0.8).chain(new Tone.Volume(-12), Tone.Master)
-const filter = new Tone.Filter(1700, 'lowpass').connect(delay).toMaster()
+const filter = new Tone.Filter(1500, 'lowpass').connect(delay).toMaster()
 const synth = new Tone.Synth({
   volume: -12,
-  portamento: 0.1,
   oscillator: {
     type: 'square'
   },
   envelope: {
-    attack: 0.2,
+    attack: 0.02,
     release: 1
   }
 }).connect(filter)
