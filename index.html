@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>WebVR Musical Instrument</title>
-    <!-- A-Frame CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.5.0/aframe.min.js" charset="utf-8"></script>
-    <!-- ToneJS CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.10.0/Tone.min.js" charset="utf-8"></script>
-    <!-- Our Tone Component -->
-    <script src="tone-component.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <a-scene antialias="true">
-      <a-sky color="white"></a-sky>
-      <a-camera position="0 0 4" user-height="0" wasd-controls="enabled: false">
-        <a-cursor fuse="true"></a-cursor>
-      </a-camera>
-      <a-entity rotation="-45 0 0">
-        <a-ring
-        tone="note: C4"
+
+<head>
+  <meta charset="utf-8">
+  <title>WebVR Musical Instrument</title>
+  <!-- A-Frame CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.5.0/aframe.min.js" charset="utf-8"></script>
+  <!-- ToneJS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.10.0/Tone.min.js" charset="utf-8"></script>
+  <!-- Our Tone Component -->
+  <script src="tone-component.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- A-Frame scene -->
+  <a-scene antialias="true">
+    <!-- plain white background -->
+    <a-sky color="white"></a-sky>
+    <!-- our scene's camera -->
+    <a-camera position="0 0 4" user-height="0" wasd-controls="enabled: false">
+      <!-- cursor with fuse enabled, allowing us to detect when it hovers over an entity -->
+      <a-cursor fuse="true"></a-cursor>
+    </a-camera>
+
+    <!-- We wrap our three rings in an entity and rotate it backwards on the X axis -->
+    <a-entity rotation="-45 0 0">
+      <!-- The entity that will play the note -->
+      <a-ring
+        tone="note: C5"
         radius-inner="0.2"
         radius-outer="0.6"
         color="#212121"
         segments-theta="64"
-        >
-          <a-animation delay="0" attribute="position" direction="alternate" dur="2000" from="0 0.1 0" to="0 0 0" repeat="indefinite"></a-animation>
-          <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
-        </a-ring>
-        <a-ring
-          tone="note: A3"
-          radius-inner="0.8"
-          radius-outer="1.2"
-          color="#212121"
-          segments-theta="64"
-        >
-          <a-animation delay="50" attribute="position" direction="alternate" dur="2000" from="0 0.1 0" to="0 0 0" repeat="indefinite"></a-animation>
-          <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
-        </a-ring>
-        <a-ring
-          tone="note: E3"
-          radius-inner="1.4"
-          radius-outer="1.8"
-          color="#212121"
-          segments-theta="64"
-        >
-        <a-animation delay="100" attribute="position" direction="alternate" dur="2000" from="0 0.1 0" to="0 0 0" repeat="indefinite"></a-animation>
+      >
+        <!-- This animation will be triggered when the cursor starts 'fusing' ( hovering ) -->
+        <a-animation
+          begin="fusing"
+          attribute="opacity"
+          dur="500"
+          from="0.5"
+          to="1"
+        ></a-animation>
+      </a-ring>
+
+      <!-- Ring 2 -->
+      <a-ring tone="note: E4" radius-inner="0.8" radius-outer="1.2" color="#212121" segments-theta="64">
         <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
       </a-ring>
-      <a-entity>
-    </a-scene>
-  </body>
+
+      <!-- Ring 3 -->
+      <a-ring tone="note: A3" radius-inner="1.4" radius-outer="1.8" color="#212121" segments-theta="64">
+        <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
+      </a-ring>
+    <a-entity>
+  </a-scene>
+</body>
+
 </html>
