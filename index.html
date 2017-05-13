@@ -6,10 +6,10 @@
   <title>WebVR Musical Instrument</title>
   <!-- A-Frame CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.5.0/aframe.min.js" charset="utf-8"></script>
-  <!-- ToneJS CDN -->
+  <!-- Tone.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.10.0/Tone.min.js" charset="utf-8"></script>
-  <!-- Our Tone Component -->
-  <script src="tone-component.js" charset="utf-8"></script>
+  <!-- Our Synth Component -->
+  <script src="synth-component.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -24,10 +24,10 @@
     </a-camera>
 
     <!-- We wrap our three rings in an entity and rotate it backwards on the X axis -->
-    <a-entity rotation="-45 0 0">
+    <a-entity id="interface" rotation="-45 0 0">
       <!-- The entity that will play the note -->
       <a-ring
-        tone="note: C5"
+        synth="note: A4"
         radius-inner="0.2"
         radius-outer="0.6"
         color="#212121"
@@ -44,12 +44,12 @@
       </a-ring>
 
       <!-- Ring 2 -->
-      <a-ring tone="note: E4" radius-inner="0.8" radius-outer="1.2" color="#212121" segments-theta="64">
+      <a-ring synth="note: E4" radius-inner="0.8" radius-outer="1.2" color="#212121" segments-theta="64">
         <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
       </a-ring>
 
       <!-- Ring 3 -->
-      <a-ring tone="note: A3" radius-inner="1.4" radius-outer="1.8" color="#212121" segments-theta="64">
+      <a-ring synth="note: F3" radius-inner="1.4" radius-outer="1.8" color="#212121" segments-theta="64">
         <a-animation begin="fusing" attribute="opacity" dur="500" from="0.5" to="1"></a-animation>
       </a-ring>
     <a-entity>
