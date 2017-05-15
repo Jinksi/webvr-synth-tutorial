@@ -38,6 +38,7 @@ AFRAME.registerComponent('synth', {
   init: function() {
     // setup the fusing/hover event listener
     // this.el refers to the entity
+    console.log('init')
     this.el.addEventListener('fusing', this.trigger.bind(this))
   },
   trigger: function() {

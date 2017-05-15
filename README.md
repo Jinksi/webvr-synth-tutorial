@@ -1,5 +1,7 @@
 # Creating a WebVR musical instrument using A-Frame & Tone.js
 
+Web browsers are incredibly powerful today and have APIs for VR devices, 3D rendering, audio synthesis and MIDI I/O. On top of this, the Open Source community has built libraries to enhance these APIs and to help us get ideas out easier. I've been exploring Virtual Reality as a new medium for interacting and experiencing audio/visual art using WebVR. This tutorial will show you the basics of getting up and running with audio synthesis in WebVR.
+
 #### A-Frame
 
 [A-Frame](https://aframe.io) is a Virtual Reality framework for the web, built by the Mozilla VR Team. A-Frame handles the 3D and WebVR boilerplate required to get running across platforms including mobile, desktop, Vive, and Rift.
@@ -14,7 +16,7 @@ We'll use Tone to control the audio of our instrument, including the synthesizer
 
 #### What we will be making
 
-We’re going to keep it simple and create rings that will each play a note, triggered on cursor hover. We’ll create our own A-Frame component that will contain our Tone.js logic.
+We’re going to keep it simple and create a sort of 'Hello World' of A-Frame + Tone.js. We'll make rings that will each play a note, triggered on cursor hover. We’ll create our own A-Frame component that will contain our Tone.js logic.
 
 ## Getting Started
 
@@ -181,7 +183,7 @@ Now our ring entity will play a note when the cursor hovers over. Try changing t
 
 #### Adding effects
 
-Tone.js is incredibly powerful and comes with [heaps](https://tonejs.github.io/docs/) of built-in audio effects. Let's route the synth through a lowpass filter and send it to a delay effect.
+Tone.js comes with [heaps](https://tonejs.github.io/docs/) of built-in audio effects. Let's route the synth through a lowpass filter and send it to a delay effect.
 
 ```js
 // a FeedbackDelay effect, repeating every eighth note with 80% feedback
@@ -225,8 +227,12 @@ Let's add more rings to our instrument. Inside our `#interface` entity, we'll ad
 </a-ring>
 ```
 
+## Viewing in a VR Headset
+
+If you are lucky enough to have access to a VR headset, checkout [webvr.info](https://webvr.info) to make get your browser setup to work with the headset. I've tested this example in Chrome Canary & Firefox Nightly with an Oculus Rift on Windows 10. Chrome reproduced it as expected, Firefox didn't seem to reproduce the opacity effect.
+
+VR support is experimental at the time of writing, so you will probably run into inconsistencies across browsers and devices.
+
 ## What's next?
 
-Creating interfaces in VR to for effects, notes, bpm.
-
-This is not reality, you don’t have to abide by the same limitations. Explore imaginative ideas
+As it is, this instrument is pretty boring. It can only play 3 notes, has a delay effect, has no dynamic control and can only be interacted with the cursor. There are hundreds of interactive possibilities with VR, including touch/push, controller buttons, head position/rotation, hand position/rotation and microphone input. Then there are endless combinations of audio synthesis sound sources, effects, notes and rhythmic ideas. I hope this tutorial gets you started exploring and creating your own musical instruments in VR.
