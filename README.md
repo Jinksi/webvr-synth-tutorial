@@ -229,9 +229,9 @@ Let's add more rings to our instrument. Inside our `#interface` entity, we'll ad
 
 ## Viewing in a VR Headset
 
-If you are lucky enough to have access to a VR headset, checkout [webvr.info](https://webvr.info) to make get your browser setup to work with the headset. I've tested this example in Chrome Canary & Firefox Nightly with an Oculus Rift on Windows 10. Chrome reproduced it as expected, Firefox didn't seem to reproduce the opacity effect.
+If you are lucky enough to have access to a VR headset, check out [webvr.info](https://webvr.info) to make get your browser setup to work with the headset. I've tested this example in Chromium & Firefox Nightly with an Oculus Rift on Windows 10. Chromium reproduced it as expected, Firefox didn't seem to reproduce the opacity effect.
 
-VR support is experimental at the time of writing, so you will probably run into inconsistencies across browsers and devices.
+VR support in browsers is experimental at the time of writing, so you will probably run into inconsistencies across browsers and devices.
 
 ## What's next?
 
